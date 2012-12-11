@@ -5,8 +5,31 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+  <script src="src/data.js"></script>
+  <script src="src/Songs.js"></script>
+  <script src="src/PlayerView.js"></script>
+  <script src="src/LibraryView.js"></script>
+  <script src="src/LibraryEntryView.js"></script>
+  <script src="src/PlaylistView.js"></script>
+  <script src="src/PlaylistEntryView.js"></script>
+  <script>
+    $(function(){
+      var songs = new Songs();
+      songs.reset(window.data);
+
+      var player = new PlayerView({collection: songs});
+      var library = new LibraryView({collection: songs});
+      var playlistView = new PlaylistView({collection: songs});
+
+      $("body").append(
+        player.render(),
+        // playlistView.render(),
+        library.render()
+      );
+
+    });
+  </script>
 </head>
 <body>
-  mytunes
 </body>
 </html>
