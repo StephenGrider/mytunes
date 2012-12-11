@@ -2,7 +2,10 @@ describe("LibraryEntryView", function() {
   var view, model;
 
   beforeEach(function() {
-    model = new Backbone.Model();
+    model = new Backbone.Model({
+      artist: "Fakey McFakerson",
+      title: "Never Gonna Mock You Up",
+    });
     view = new LibraryEntryView({model: model});
     view.render();
   });

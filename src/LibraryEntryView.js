@@ -6,15 +6,11 @@ var LibraryEntryView = Backbone.View.extend({
     "click": "addToQueue"
   },
 
+  // templates are a nicer way to put js data into html strings
+  template: _.template("<td>(<%= artist %>)</td><td><%= title %></td>"),
+
   render: function(){
-    var htmlString = 
-      "<td>" +
-        "(" + this.model.attributes.artist + ")" + 
-      "</td>" +
-      "<td>" + 
-        this.model.attributes.title + 
-      "</td>";
-    return this.$el.html(htmlString);
+    return this.$el.html(this.template(this.model.attributes));
   },
 
   // event listener
