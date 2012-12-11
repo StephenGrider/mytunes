@@ -19,9 +19,10 @@ describe("PlaylistView", function() {
   xdescribe("when a song has 'queuedAt' added or removed", function(){
 
     it("should be rerendered", function(){
+      var oldCallCount = view.render.callCount;
       var song = collection.models[0];
       song.set("queuedAt", new Date());
-      expect(view.render).toHaveBeenCalled();
+      expect(view.render.callCount).toEqual(oldCallCount + 1);
     });
 
     it("should have the updated item in its collection", function(){
