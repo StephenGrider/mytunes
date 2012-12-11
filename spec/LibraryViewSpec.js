@@ -23,4 +23,7 @@ describe("LibraryView", function() {
     view.render()
     expect(fakeSubview.render.callCount).toEqual(fakeSongs.length);
   });
+
+  xit("should have a header element", function(){
+  });
 });
