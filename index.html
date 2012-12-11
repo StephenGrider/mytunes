@@ -15,7 +15,7 @@
   <script>
     $(function(){
       var songs = new Songs();
-      songs.reset(window.data);
+      songs.reset(data);
 
       var player = new PlayerView({collection: songs});
       var library = new LibraryView({collection: songs});

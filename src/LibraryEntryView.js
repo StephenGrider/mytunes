@@ -1,8 +1,11 @@
 var LibraryEntryView = Backbone.View.extend({
+
   tagName: "tr",
+
   events: {
     "click": "addToQueue"
   },
+
   render: function(){
     var htmlString = 
       "<td>" +
@@ -13,8 +16,11 @@ var LibraryEntryView = Backbone.View.extend({
       "</td>";
     return this.$el.html(htmlString);
   },
+
+  // event listener
   addToQueue: function(){
     this.model.set("queuedAt", new Date());
   }
+
 });
 

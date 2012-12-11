@@ -1,4 +1,4 @@
-window.data = [
+var data = [
   {
     url: "mp3s/08 4 Page Letter.mp3",
     title: "4 Page Letter",
