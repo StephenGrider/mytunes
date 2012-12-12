@@ -2,7 +2,7 @@ var PlayerView = Backbone.View.extend({
 
   initialize: function(){
     // set up an event listener on the songs collection
-    this.collection.bind("change", this.handleQueueChange.bind(this));
+    this.collection.bind("change", this.handleQueueChange, this);
   },
 
   // templates are a nicer way to put js data into html strings
