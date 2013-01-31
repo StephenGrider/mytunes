@@ -12,6 +12,8 @@ describe("PlaylistView", function() {
     view.render();
   });
 
+  //Uncomment these specs and make them pass by adding a playlist to your app.
+
   xit("should tell the user to click on some songs in the library", function(){
     expect(view.$el.html()).toMatch(/click on something/);
   });

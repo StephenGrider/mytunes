@@ -4,7 +4,7 @@ describe("PlayerView", function() {
   beforeEach(function() {
     collection = new Songs();
     collection.reset([
-      {fake: "data", url: "is apparently necessary"}
+      {fake: "data", url: "/test/testsong.mp3", title:'test song'}
     ]);
     view = new PlayerView({collection: collection});
   });
@@ -16,6 +16,7 @@ describe("PlayerView", function() {
     expect(view.model).toEqual(song);
   });
 
+  //Complete these specs in that govern application behavior during song transitions, and implement the specified functionality
   xdescribe("what happens when the song ends", function(){
     xit("should remove the old song from the playlist");
     xit("should get the next song in the playlist");
