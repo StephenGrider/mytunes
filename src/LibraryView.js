@@ -9,13 +9,13 @@ var LibraryView = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html("<h2>Library</h2>")
+    this.$el.html("<h2>Library</h2>");
 
     // render all the subviews and append them to this.$el
     var that = this;
     _.each(this.subviews, function(subview){
       that.$el.append(subview.render());
-    })
+    });
 
     return this.$el;
   }
