@@ -7,14 +7,10 @@ var LibraryEntryView = Backbone.View.extend({
     '<td>(<%= artist %>)</td>' +
     '<td>' +
       '<a href="#<%= url %>" class="play"><%= title %></a>' +
-    '</td>' +
-    '<td>' +
-      '<a href="#" class="queue" >add to queue</a>' +
     '</td>'
   ),
 
   events: {
-    'click .queue': 'addToQueue',
     'click .play': 'play'
   },
 
@@ -24,11 +20,6 @@ var LibraryEntryView = Backbone.View.extend({
 
   play: function() {
     this.model.collection.trigger('play', this.model);
-  },
-
-  // event listener
-  addToQueue: function(){
-    this.model.set('queuedAt', new Date());
   }
 
 });

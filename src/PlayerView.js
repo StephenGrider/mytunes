@@ -7,7 +7,7 @@ var PlayerView = Backbone.View.extend({
   },
 
   // templates are a nicer way to put js data into html strings
-  template: _.template('<audio src="<%= url %>" controls autoplay></audio><span><%= title%></span>'),
+  template: _.template('<audio src="<%= url %>" controls autoplay></audio>'),
 
   render: function(){
     if(this.model){
