@@ -1,4 +1,4 @@
-var data = [
+var songData = [
   {
     url: "mp3s/08 4 Page Letter.mp3",
     title: "4 Page Letter",

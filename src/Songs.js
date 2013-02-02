@@ -1,5 +1,6 @@
 var Songs = Backbone.Collection.extend({
-  // return queued songs
+
+  // return only the queued songs
   queued: function(){
     // chain, filter, sortBy, and value are from underscore
     return this.chain().filter(function(song){
@@ -8,4 +9,5 @@ var Songs = Backbone.Collection.extend({
       return song.attributes.queuedAt;
     }).value();
   }
+
 });
