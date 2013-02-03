@@ -1,4 +1,4 @@
-describe("PlaylistView", function() {
+describe('PlaylistView', function() {
   var view, firstFakeSong, fakeSongs;
 
   beforeEach(function() {
@@ -15,26 +15,26 @@ describe("PlaylistView", function() {
     view.render();
   });
 
-  xit("should tell the user to click on some songs in the library", function(){
+  xit('should tell the user to click on some songs in the library', function(){
     expect(view.$el.html()).toMatch(/click on something/);
   });
 
-  describe("when a song has 'queuedAt' added or removed", function(){
+  describe('when a song has "queuedAt" added or removed', function(){
 
-    xit("should be rerendered", function(){
+    xit('should be rerendered', function(){
       var oldCallCount = view.render.callCount;
-      firstFakeSong.set("queuedAt", new Date());
+      firstFakeSong.set('queuedAt', new Date());
       expect(view.render.callCount).toEqual(oldCallCount + 1);
     });
 
-    xit("should have the updated item in its collection", function(){
+    xit('should have the updated item in its collection', function(){
       expect(view.queuedSongs()).toEqual([]);
-      firstFakeSong.set("queuedAt", new Date());
+      firstFakeSong.set('queuedAt', new Date());
       expect(view.queuedSongs()).toEqual([firstFakeSong]);
     });
 
-    xit("should have the updated item in its html", function(){
-      firstFakeSong.set("queuedAt", new Date());
+    xit('should have the updated item in its html', function(){
+      firstFakeSong.set('queuedAt', new Date());
       expect(view.$el.html()).not.toMatch(/click on something/);
     });
 
