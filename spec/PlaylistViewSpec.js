@@ -4,7 +4,7 @@ describe('PlaylistView', function() {
   beforeEach(function() {
     fakeSongs = new Songs();
     fakeSongs.reset([{
-      fake: 'data',
+      artist: 'data',
       url: '/test/testsong.mp3',
       title:'test song'
     }]);

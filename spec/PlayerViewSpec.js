@@ -5,7 +5,7 @@ describe('PlayerView', function() {
     songs = new Songs();
     songs.reset([
       {
-        fake: 'data',
+        artist: 'data',
         url: '/test/testsong.mp3',
         title:'test song'
       }
