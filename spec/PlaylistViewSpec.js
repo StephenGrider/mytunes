@@ -2,13 +2,14 @@ describe('PlaylistView', function() {
   var view, firstFakeSong, fakeSongs;
 
   beforeEach(function() {
-    fakeSongs = new Songs();
-    fakeSongs.reset([{
-      fake: 'data',
-      url: '/test/testsong.mp3',
-      title:'test song'
-    }]);
-    firstFakeSong = fakeSongs[0];
+    fakeSongs = new Songs([
+      {
+        fake: 'data',
+        url: '/test/testsong.mp3',
+        title:'test song'
+      }
+    ]);
+    firstFakeSong = fakeSongs.at(0);
 
     spyOn(PlaylistView.prototype, 'render').andCallThrough();
     view = new PlaylistView({collection: fakeSongs});

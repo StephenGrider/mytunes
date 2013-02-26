@@ -6,8 +6,7 @@ describe("LibraryView", function() {
       {data: "data"},
       {data2: "data2"}
     ];
-    fakeSongs = new Backbone.Collection();
-    fakeSongs.reset(fakeSongData);
+    fakeSongs = new Backbone.Collection(fakeSongData);
 
     fakeSubview = { render: jasmine.createSpy() };
     spyOn(window, 'LibraryEntryView').andReturn(fakeSubview);
