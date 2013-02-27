@@ -15,9 +15,7 @@ describe('PlayerView', function() {
 
   it('gets a new model when the first song is played', function(){
     expect(view.model).toNotEqual(library.at(0));
-debugger;
     library.at(0).play();
-debugger;
     expect(view.model).toEqual(library.at(0));
   });
 

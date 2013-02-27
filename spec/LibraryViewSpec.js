@@ -3,8 +3,16 @@ describe("LibraryView", function() {
 
   beforeEach(function() {
     fakeSongData = [
-      {data: "data"},
-      {data2: "data2"}
+      {
+        artist: 'Fakey McFakerson',
+        title: 'Never Gonna Mock You Up',
+        url: 'example/url'
+      },
+      {
+        artist: 'BittyBacon',
+        title: 'Sizzle Sundays',
+        url: 'fake/url'
+      }
     ];
     fakeSongs = new Backbone.Collection(fakeSongData);
 
