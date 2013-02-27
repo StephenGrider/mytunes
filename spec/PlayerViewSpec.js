@@ -4,7 +4,7 @@ describe('PlayerView', function() {
   beforeEach(function() {
     library = new Songs([
       {
-        fake: 'data',
+        artist: 'data',
         url: '/test/testsong.mp3',
         title: 'test song'
       }
