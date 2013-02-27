@@ -18,4 +18,12 @@ describe('AppView', function() {
     app = new App({library: fakeSongs});
     view = new AppView({model: app});
   });
+
+  it('should generate a PlayerView when created', function(){
+    expect(view.playerView).toEqual(jasmine.any(Object));
+  });
+
+  xit('should change currentSong on \'play\' event' , function() {
+    // Implement the test
+  })
 });

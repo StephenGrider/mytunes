@@ -22,8 +22,8 @@ describe("LibraryView", function() {
     view = new LibraryView({collection: fakeSongs});
   });
 
-  it("should create some subviews when you create it", function(){
-    expect(LibraryEntryView.callCount).toEqual(fakeSongData.length);
+  // Implement the test
+  xit("should create some subviews when you create it", function(){
   });
 
   it("should render its subviews when you render it", function(){
@@ -31,7 +31,7 @@ describe("LibraryView", function() {
     expect(fakeSubview.render.callCount).toEqual(fakeSongData.length);
   });
 
-  //Implement the test
+  // Implement the test
   xit("should have a header element", function(){
   });
 });
