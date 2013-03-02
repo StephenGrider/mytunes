@@ -3,8 +3,16 @@ describe("LibraryView", function() {
 
   beforeEach(function() {
     fakeSongData = [
-      {data: "data"},
-      {data2: "data2"}
+      {
+        artist: 'Fakey McFakerson',
+        title: 'Never Gonna Mock You Up',
+        url: 'example/url'
+      },
+      {
+        artist: 'BittyBacon',
+        title: 'Sizzle Sundays',
+        url: 'fake/url'
+      }
     ];
     fakeSongs = new Backbone.Collection(fakeSongData);
 
@@ -14,8 +22,8 @@ describe("LibraryView", function() {
     view = new LibraryView({collection: fakeSongs});
   });
 
-  it("should create some subviews when you create it", function(){
-    expect(LibraryEntryView.callCount).toEqual(fakeSongData.length);
+  // Implement the test
+  xit("should create some subviews when you create it", function(){
   });
 
   it("should render its subviews when you render it", function(){
@@ -23,7 +31,7 @@ describe("LibraryView", function() {
     expect(fakeSubview.render.callCount).toEqual(fakeSongData.length);
   });
 
-  //Implement the test
+  // Implement the test
   xit("should have a header element", function(){
   });
 });

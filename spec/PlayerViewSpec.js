@@ -1,5 +1,5 @@
 describe('PlayerView', function() {
-  var view, library, appView;
+  var library, appView;
 
   beforeEach(function() {
     library = new Songs([
@@ -7,18 +7,22 @@ describe('PlayerView', function() {
         artist: 'data',
         url: '/test/testsong.mp3',
         title: 'test song'
+      },
+      {
+        artist: 'data2',
+        url: '/test/bacon.mp3',
+        title: 'test song2'
       }
     ]);
+    // playerView is created in AppView initialize
+    // access with appView.playerView
     appView = new AppView({model: new App({library: library})});
-    view = new PlayerView({model: appView});
   });
 
   it('gets a new model when the first song is played', function(){
-    expect(view.model).toNotEqual(library.at(0));
-debugger;
+    expect(appView.playerView.model).toNotEqual(library.at(0));
     library.at(0).play();
-debugger;
-    expect(view.model).toEqual(library.at(0));
+    expect(appView.playerView.model).toEqual(library.at(0));
   });
 
 });
