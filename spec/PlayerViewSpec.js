@@ -1,30 +1,28 @@
 describe('PlayerView', function() {
-  var view, songs;
+  var library, appView;
 
   beforeEach(function() {
-    songs = new Songs();
-    songs.reset([
+    library = new Songs([
       {
         artist: 'data',
         url: '/test/testsong.mp3',
-        title:'test song'
+        title: 'test song'
+      },
+      {
+        artist: 'data2',
+        url: '/test/bacon.mp3',
+        title: 'test song2'
       }
     ]);
-    view = new PlayerView({collection: songs});
+    // playerView is created in AppView initialize
+    // access with appView.playerView
+    appView = new AppView({model: new App({library: library})});
   });
 
-  it('should change when the first song is queued', function(){
-    expect(view.model).toBeUndefined();
-    var song = songs.models[0];
-    song.set('queuedAt', new Date());
-    expect(view.model).toEqual(song);
+  it('gets a new model when the first song is played', function(){
+    expect(appView.playerView.model).toNotEqual(library.at(0));
+    library.at(0).play();
+    expect(appView.playerView.model).toEqual(library.at(0));
   });
 
-  describe('what happens when the song ends', function(){
-
-    xit('should remove the old song from the playlist');
-
-    xit('should get the next song in the playlist');
-
-  });
 });

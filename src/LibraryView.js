@@ -2,17 +2,15 @@ var LibraryView = Backbone.View.extend({
 
   tagName: "table",
 
-  initialize: function(){
-    this.subviews = this.collection.map(function(song){
-      return new LibraryEntryView({model: song});
-    });
-  },
-
   render: function(){
-    // render all the subviews and append them to this.$el
-    return this.$el.html("<th>Library</th>").append(
-      _(this.subviews).map(function(subview){
-        return subview.render();
+    // to preserve event handlers on child nodes, we must call .detach() on them before overwriting with .html()
+    // see http://api.jquery.com/detach/
+    this.$el.children().detach();
+
+    return this.$el.html('<th>Library</th>').append(
+      this.collection.map(function(song){
+        console.log('LibView song: ', song);
+        return new LibraryEntryView({model: song}).render();
       })
     );
   }

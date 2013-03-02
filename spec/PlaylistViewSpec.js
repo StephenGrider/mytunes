@@ -2,12 +2,14 @@ describe('PlaylistView', function() {
   var view, firstFakeSong, fakeSongs;
 
   beforeEach(function() {
-    fakeSongs = new Songs();
-    fakeSongs.reset([{
-      artist: 'data',
-      url: '/test/testsong.mp3',
-      title:'test song'
-    }]);
+    fakeSongs = new Songs([
+      {
+        artist: 'data',
+        url: '/test/testsong.mp3',
+        title:'test song'
+      }
+    ]);
+
     firstFakeSong = fakeSongs.at(0);
 
     spyOn(PlaylistView.prototype, 'render').andCallThrough();
