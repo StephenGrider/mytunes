@@ -27,7 +27,9 @@ describe("LibraryView", function() {
     expect(fakeSubview.render.callCount).toEqual(fakeSongData.length);
   });
 
-  // Implement the test
-  xit("should have a header element", function(){
+  it("should have a header element after being rendered", function(){
+    expect(view.$el.children().length).toBe(0);
+    view.render();
+    expect(view.$el.children()[0].tagName).toBe('TH');
   });
 });
