@@ -17,7 +17,7 @@ describe('PlaylistView', function() {
     view.render();
   });
 
-  xit('should tell the user to click on some songs in the library', function(){
+  it('should tell the user to click on some songs in the library', function(){
     expect(view.$el.html()).toMatch(/click on something/);
   });
 
