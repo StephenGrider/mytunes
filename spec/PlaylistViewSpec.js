@@ -23,7 +23,7 @@ describe('PlaylistView', function() {
 
   describe('when a song has "queuedAt" added or removed', function(){
 
-    xit('should be rerendered', function(){
+    it('should be rerendered', function(){
       var oldCallCount = view.render.callCount;
       firstFakeSong.set('queuedAt', new Date());
       expect(view.render.callCount).toEqual(oldCallCount + 1);
