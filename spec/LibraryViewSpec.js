@@ -22,10 +22,6 @@ describe("LibraryView", function() {
     view = new LibraryView({collection: fakeSongs});
   });
 
-  // Implement the test
-  xit("should create some subviews when you create it", function(){
-  });
-
   it("should render its subviews when you render it", function(){
     view.render();
     expect(fakeSubview.render.callCount).toEqual(fakeSongData.length);
