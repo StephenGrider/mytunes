@@ -26,11 +26,11 @@ describe('PlayerView', function() {
   });
 
   describe('Song transitions', function() {
-    xit('plays the next song when the previous finishes', function(){
+    xit('dequeues a song when finished playing', function(){
       // Implement this test
     });
 
-    xit('dequeues a song when finished playing', function(){
+    xit('plays the next song when the previous finishes', function(){
       // Implement this test
     });
   });
