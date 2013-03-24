@@ -1,16 +1,15 @@
 var PlaylistView = Backbone.View.extend({
 
-    renderCallCount: 0,
-
     initialize: function() {
       this.collection.on('change:queuedAt', this.render, this);
-      this.$el.html(['click on something']);
     },
 
     render: function() {
-      this.renderCallCount++;
-      // TODO: refactor to use this.queuedSongs().length
-      if(this.renderCallCount > 1 )this.el.innerHTML = 'Now playing a song!';
+      if(this.queuedSongs().length){
+        this.el.innerHTML = 'Now playing a song!';
+      } else {
+        this.el.innerHTML = 'click on something';
+      }
       return this.$el;
     },
 
