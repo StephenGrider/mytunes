@@ -3,7 +3,7 @@ var PlaylistView = Backbone.View.extend({
     renderCallCount: 0,
 
     initialize: function() {
-      this.collection.on('change:queuedAt', this.render, this)
+      this.collection.on('change:queuedAt', this.render, this);
       this.$el.html(['click on something']);
     },
 
