@@ -8,5 +8,11 @@ var PlaylistView = Backbone.View.extend({
     render: function() {
       this.$el.html(['click on something']);
       return this;
+    },
+
+    queuedSongs: function() {
+      return this.collection.filter(function(val) {
+        if(val.get('queuedAt')) return val;
+      });
     }
 });

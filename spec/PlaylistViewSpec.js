@@ -29,7 +29,7 @@ describe('PlaylistView', function() {
       expect(view.render.callCount).toEqual(oldCallCount + 1);
     });
 
-    xit('should have the updated item in its collection', function(){
+    it('should have the updated item in its collection', function(){
       expect(view.queuedSongs()).toEqual([]);
       firstFakeSong.set('queuedAt', new Date());
       expect(view.queuedSongs()).toEqual([firstFakeSong]);
