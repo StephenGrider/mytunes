@@ -2,6 +2,7 @@ var PlaylistView = Backbone.View.extend({
 
     initialize: function() {
       this.collection.on('change:queuedAt', this.render, this);
+      this.render();
     },
 
     render: function() {
