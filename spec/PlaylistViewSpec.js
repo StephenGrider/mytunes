@@ -7,6 +7,11 @@ describe('PlaylistView', function() {
         artist: 'data',
         url: '/test/testsong.mp3',
         title:'test song'
+      },
+      {
+        artist: 'data',
+        url: '/test/testsong2.mp3',
+        title:'test song 2'
       }
     ]);
 
@@ -41,4 +46,10 @@ describe('PlaylistView', function() {
     });
 
   });
+
+  it('', function(){
+    firstFakeSong.set('queuedAt', new Date());
+    expect(view.$el.html()).not.toMatch(/click on something/);
+  });
+
 });
