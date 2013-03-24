@@ -4,6 +4,8 @@ var PlaylistView = Backbone.View.extend({
 
     initialize: function() {
       this.collection.on('change:queuedAt', this.render, this);
+      // TDOD: addEventListener to handle audioEnded
+      // this.collection.on('change:audioEnded', this.render, this);
       this.$el.html(['click on something']);
     },
 
@@ -14,8 +16,10 @@ var PlaylistView = Backbone.View.extend({
     },
 
     queuedSongs: function() {
-      return this.collection.filter(function(val) {
-        if(val.get('queuedAt')) return val;
-      });
+      return this.collection.chain()
+        .filter(function(val) {
+          if(val.get('queuedAt')) return val;
+        })
+        .sortBy('queuedAt').value();
     }
 });
