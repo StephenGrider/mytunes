@@ -35,7 +35,7 @@ describe('PlayerView', function() {
       var endSong = function() { appView.playerView.el.currentTime = appView.playerView.el.duration;};
       setTimeout(endSong, 500);
       jasmine.Clock.tick(501);
-      expect(library.at(0)).not.toEqual(appView.playerView.model);
+      expect(prevSong).not.toEqual(appView.playerView.model);
     });
 
     xit('plays the next song when the previous finishes', function(){

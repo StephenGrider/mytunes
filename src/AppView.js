@@ -6,6 +6,15 @@ var AppView = Backbone.View.extend({
     this.model.on('change:currentSong', function(model){
       this.playerView.setSong(model.get('currentSong'));
     }, this);
+    this.playlistView.collection.on('change:audioEnded', function(song){
+      debugger;
+      song.unset('queuedAt');
+      var queuedSongs = this.playlistView.queuedSongs();
+      if(queuedSongs.length){
+        this.model.set('currentSong', queuedSongs[0]);
+        this.playerView.setSong(this.model.get('currentSong'));
+      }
+    }, this);
   },
 
   render: function(){
