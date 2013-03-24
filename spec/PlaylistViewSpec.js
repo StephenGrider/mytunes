@@ -35,7 +35,7 @@ describe('PlaylistView', function() {
       expect(view.queuedSongs()).toEqual([firstFakeSong]);
     });
 
-    xit('should have the updated item in its html', function(){
+    it('should have the updated item in its html', function(){
       firstFakeSong.set('queuedAt', new Date());
       expect(view.$el.html()).not.toMatch(/click on something/);
     });
