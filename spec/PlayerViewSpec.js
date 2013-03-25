@@ -31,6 +31,7 @@ describe('PlayerView', function() {
     it('dequeues a song when finished playing', function(){
       library.at(0).play();
       var prevSong = appView.playerView.model;
+      library.at(1).queue();
       // Artificially end song
       var endSong = function() { appView.playerView.el.currentTime = appView.playerView.el.duration;};
       setTimeout(endSong, 500);
