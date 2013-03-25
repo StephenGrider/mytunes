@@ -3,7 +3,7 @@ describe('AppView', function() {
 
   beforeEach(function () {
     app = new App({library:
-      new Backbone.Collection([
+      new Songs([
         {
           artist: 'Fakey McFakerson',
           title: 'Never Gonna Mock You Up',
@@ -21,6 +21,14 @@ describe('AppView', function() {
 
   it('should generate a PlayerView when created', function(){
     expect(appView.playerView).toEqual(jasmine.any(PlayerView));
+  });
+  describe('when the currently playing song changes', function() {
+    it('updates current song in playerView', function(){
+      var song = app.get('library').at(0);
+      expect(appView.playerView.model).not.toEqual(song);
+      song.play();
+      expect(appView.playerView.model).toEqual(song);
+    });
   });
 
 });

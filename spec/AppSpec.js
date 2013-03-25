@@ -2,7 +2,7 @@ describe('App', function() {
   var app, fakeSongs;
 
   beforeEach(function() {
-    fakeSongs = new Backbone.Collection([
+    fakeSongs = new Songs([
       {
         artist: 'data',
         url: '/test/testsong.mp3',
@@ -28,9 +28,8 @@ describe('App', function() {
   });
 
   it('queues the next song when an "enqueue" event is fired', function(){
-    // TODO: decouple playlist.add from playFirst()
     app.get('library').at(1).trigger('enqueue', app.get('library').at(1));
-    expect(app.get('playlist').at(0)).toEqual(app.get('library').at(0));
+    expect(app.get('playlist').at(0)).toEqual(app.get('library').at(1));
   });
 
 
