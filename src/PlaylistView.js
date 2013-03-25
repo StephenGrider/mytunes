@@ -1,2 +1,10 @@
-/* CODE GOES HERE */
-/* Don't forget newlines at EoF */
+var PlaylistView = Backbone.View.extend({
+
+  initialize: function() {
+  },
+
+  render: function() {
+    return this.$el;
+  }
+
+});

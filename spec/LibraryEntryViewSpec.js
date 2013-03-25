@@ -2,18 +2,25 @@ describe('LibraryEntryView', function() {
   var view, model;
 
   beforeEach(function() {
-    model = new Backbone.Model({
+    model = new Song({
       artist: 'Fakey McFakerson',
       title: 'Never Gonna Mock You Up',
-      url: 'example/url'
+      url: 'example/url',
     });
+    // spyOn(Song.prototype, 'enqueue'); // Uncomment this when working on the second test
+    spyOn(Song.prototype, 'play');
     view = new LibraryEntryView({model: model});
     view.render();
   });
 
-  it('should set the song model\'s "queuedAt" property when you click on it', function(){
-    expect(model.attributes.queuedAt).toBeFalsy();
+  it('plays clicked songs', function(){
     view.$el.children().first().click();
-    expect(model.attributes.queuedAt).toMatch(jasmine.any(Date));
+    expect(model.play).toHaveBeenCalled();
+  });
+
+  // Comment out the above spec when implementing the below
+  xit('queues clicked songs', function(){
+    view.$el.children().first().click();
+    expect(model.enqueue).toHaveBeenCalled();
   });
 });

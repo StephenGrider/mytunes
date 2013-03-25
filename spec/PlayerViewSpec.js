@@ -21,7 +21,7 @@ describe('PlayerView', function() {
     appView = new AppView({model: new App({library: library})});
   });
 
-  it('gets a new model when the first song is played', function(){
+  it('gets its model property set to any song that is played', function(){
     expect(appView.playerView.model).not.toEqual(library.at(0));
     library.at(0).play();
     expect(appView.playerView.model).toEqual(library.at(0));
@@ -30,13 +30,11 @@ describe('PlayerView', function() {
   describe('Song transitions', function() {
     xit('dequeues a song when finished playing & plays the next song', function(){
       library.at(0).play();
-      var prevSong = appView.playerView.model;
-      library.at(1).queue();
-      // Artificially end song
-      var endSong = function() { appView.playerView.el.currentTime = appView.playerView.el.duration;};
-      setTimeout(endSong, 500);
-      jasmine.Clock.tick(501);
-      expect(prevSong).not.toEqual(appView.playerView.model);
+      var originalSong = appView.playerView.model;
+      appView.model.get('playlist').add(library.at(1));
+      // Simulate a song end event being triggered
+      $(appView.playerView.el).trigger('ended');
+      expect(appView.playerView.model).not.toEqual(originalSong);
     });
   });
 
