@@ -2,6 +2,8 @@ describe('PlayerView', function() {
   var library, appView;
 
   beforeEach(function() {
+    jasmine.Clock.useMock();
+
     library = new Songs([
       {
         url: "mp3s/08 4 Page Letter.mp3",
