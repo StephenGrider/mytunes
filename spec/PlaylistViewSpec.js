@@ -1,8 +1,8 @@
 describe('PlaylistView', function() {
-  var view, firstFakeSong, fakeSongs, secondFakeSong;
+  var view, fakeSongs;
 
   beforeEach(function() {
-    fakeSongs = new Songs([
+    fakeSongs = new Playlist([
       {
         artist: 'data',
         url: '/test/testsong.mp3',
@@ -15,23 +15,25 @@ describe('PlaylistView', function() {
       }
     ]);
 
-    firstFakeSong = fakeSongs.at(0);
-    secondFakeSong = fakeSongs.at(1);
-
-    spyOn(PlaylistView.prototype, 'render').andCallThrough();
-    spyOn(PlaylistView.$el.children(), 'detach').andCallThrough();
-    spyOn(PlaylistEntryView.prototype, 'render').andCallThrough();
-    view = new PlaylistView({collection: fakeSongs});
-    view.render();
   });
 
   it('creates PlaylistEntryViews for each queued song & renders them', function(){
+    spyOn(PlaylistEntryView.prototype, 'render').andCallThrough();
+    view = new PlaylistView({collection: fakeSongs});
+    view.render();
     expect(PlaylistEntryView.prototype.render).toHaveBeenCalled();
   });
 
-  it('', function(){
-    expect(PlaylistView.$el.children().detach).toHaveBeenCalled();
-    expect();
+  it('renders when add or remove event fires from the playlist collection', function(){
+    spyOn(PlaylistView.prototype, 'render').andCallThrough();
+    view = new PlaylistView({collection: fakeSongs});
+    view.collection.add({
+      artist: 'data',
+      url: '/test/testsong3.mp3',
+      title:'test song 3'
+    });
+    view.collection.pop();
+    expect(view.render.callCount).toEqual(2);
   });
 
 });
