@@ -2,16 +2,18 @@ describe('PlayerView', function() {
   var library, appView;
 
   beforeEach(function() {
+    jasmine.Clock.useMock();
+
     library = new Songs([
       {
-        artist: 'data',
-        url: '/test/testsong.mp3',
-        title: 'test song'
+        url: "mp3s/08 4 Page Letter.mp3",
+        title: "4 Page Letter",
+        artist: "Aaliyah"
       },
       {
-        artist: 'data2',
-        url: '/test/bacon.mp3',
-        title: 'test song2'
+        url: "mp3s/11 We Need A Resolution.mp3",
+        title: "We Need A Resolution",
+        artist: "Aaliyah"
       }
     ]);
     // playerView is created in AppView initialize
@@ -20,18 +22,21 @@ describe('PlayerView', function() {
   });
 
   it('gets a new model when the first song is played', function(){
-    expect(appView.playerView.model).toNotEqual(library.at(0));
+    expect(appView.playerView.model).not.toEqual(library.at(0));
     library.at(0).play();
     expect(appView.playerView.model).toEqual(library.at(0));
   });
 
   describe('Song transitions', function() {
-    xit('plays the next song when the previous finishes', function(){
-      // Implement this test
-    });
-
-    xit('dequeues a song when finished playing', function(){
-      // Implement this test
+    xit('dequeues a song when finished playing & plays the next song', function(){
+      library.at(0).play();
+      var prevSong = appView.playerView.model;
+      library.at(1).queue();
+      // Artificially end song
+      var endSong = function() { appView.playerView.el.currentTime = appView.playerView.el.duration;};
+      setTimeout(endSong, 500);
+      jasmine.Clock.tick(501);
+      expect(prevSong).not.toEqual(appView.playerView.model);
     });
   });
 
