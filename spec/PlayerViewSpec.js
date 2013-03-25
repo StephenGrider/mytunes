@@ -28,7 +28,7 @@ describe('PlayerView', function() {
   });
 
   describe('Song transitions', function() {
-    it('dequeues a song when finished playing', function(){
+    it('dequeues a song when finished playing & plays the next song', function(){
       library.at(0).play();
       var prevSong = appView.playerView.model;
       library.at(1).queue();
@@ -37,10 +37,6 @@ describe('PlayerView', function() {
       setTimeout(endSong, 500);
       jasmine.Clock.tick(501);
       expect(prevSong).not.toEqual(appView.playerView.model);
-    });
-
-    xit('plays the next song when the previous finishes', function(){
-      // Implement this test
     });
   });
 

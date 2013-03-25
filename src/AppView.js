@@ -1,8 +1,8 @@
 var AppView = Backbone.View.extend({
 
-  libraryCollection: this.model.get('library'),
-
   initialize: function(params){
+    this.libraryCollection = this.model.get('library');
+
     this.playerView = new PlayerView({model: this.model.get('currentSong')});
     this.playlistView = new PlaylistView({collection: this.libraryCollection});
 
