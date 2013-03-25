@@ -19,41 +19,19 @@ describe('PlaylistView', function() {
     secondFakeSong = fakeSongs.at(1);
 
     spyOn(PlaylistView.prototype, 'render').andCallThrough();
+    spyOn(PlaylistView.$el.children(), 'detach').andCallThrough();
+    spyOn(PlaylistEntryView.prototype, 'render').andCallThrough();
     view = new PlaylistView({collection: fakeSongs});
     view.render();
   });
 
-  it('should tell the user to click on some songs in the library', function(){
-    expect(view.$el.html()).toMatch(/click on something/);
+  it('creates PlaylistEntryViews for each queued song & renders them', function(){
+    expect(PlaylistEntryView.prototype.render).toHaveBeenCalled();
   });
 
-  describe('when a song has "queuedAt" added or removed', function(){
-
-    it('should be rerendered', function(){
-      var oldCallCount = view.render.callCount;
-      firstFakeSong.set('queuedAt', new Date());
-      expect(view.render.callCount).toEqual(oldCallCount + 1);
-    });
-
-    it('should have the updated item in its collection', function(){
-      expect(view.queuedSongs()).toEqual([]);
-      firstFakeSong.set('queuedAt', new Date());
-      expect(view.queuedSongs()).toEqual([firstFakeSong]);
-    });
-
-    it('should have the updated item in its html', function(){
-      firstFakeSong.set('queuedAt', new Date());
-      expect(view.$el.html()).not.toMatch(/click on something/);
-    });
-
-  });
-
-  it('returns the queued songs in the order they were added', function(){
-    expect(view.queuedSongs()).toEqual([]);
-    firstFakeSong.set('queuedAt', new Date());
-    expect(view.queuedSongs()).toEqual([firstFakeSong]);
-    secondFakeSong.set('queuedAt', new Date());
-    expect(view.queuedSongs()).toEqual([firstFakeSong, secondFakeSong]);
+  it('', function(){
+    expect(PlaylistView.$el.children().detach).toHaveBeenCalled();
+    expect();
   });
 
 });

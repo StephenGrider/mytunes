@@ -5,15 +5,16 @@ describe('LibraryEntryView', function() {
     model = new Backbone.Model({
       artist: 'Fakey McFakerson',
       title: 'Never Gonna Mock You Up',
-      url: 'example/url'
+      url: 'example/url',
+      enqueue: function() { console.log('song queued!');}
     });
     view = new LibraryEntryView({model: model});
+    spyOn(view.model, 'enqueue').andCallFake();
     view.render();
   });
 
   it('should set the song model\'s "queuedAt" property when you click on it', function(){
-    expect(model.attributes.queuedAt).toBeFalsy();
     view.$el.children().first().click();
-    expect(model.attributes.queuedAt).toMatch(jasmine.any(Date));
+    expect(model.enqueue).toHaveBeenCalled();
   });
 });

@@ -23,7 +23,4 @@ describe('AppView', function() {
     expect(appView.playerView).toEqual(jasmine.any(PlayerView));
   });
 
-  xit('should change currentSong on \'play\' event' , function() {
-    // Implement the test
-  })
 });
