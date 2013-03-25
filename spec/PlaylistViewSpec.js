@@ -17,14 +17,14 @@ describe('PlaylistView', function() {
 
   });
 
-  it('creates PlaylistEntryViews for each queued song & renders them', function(){
+  xit('creates PlaylistEntryViews for each queued song & renders them', function(){
     spyOn(PlaylistEntryView.prototype, 'render').andCallThrough();
     view = new PlaylistView({collection: fakeSongs});
     view.render();
     expect(PlaylistEntryView.prototype.render).toHaveBeenCalled();
   });
 
-  it('renders when add or remove event fires from the playlist collection', function(){
+  xit('renders when add or remove event fires from the playlist collection', function(){
     spyOn(PlaylistView.prototype, 'render').andCallThrough();
     view = new PlaylistView({collection: fakeSongs});
     view.collection.add({

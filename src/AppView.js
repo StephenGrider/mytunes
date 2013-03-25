@@ -11,8 +11,7 @@ var AppView = Backbone.View.extend({
   render: function(){
     return this.$el.html([
       this.playerView.$el,
-      new LibraryView({collection: this.model.get('library')}).render()/* start solution */,
-      new PlaylistView({collection: this.model.get('playlist')}).render()/* end solution */
+      new LibraryView({collection: this.model.get('library')}).render()
     ]);
   }
 
