@@ -17,14 +17,14 @@ describe('App', function() {
     app = new App({library: fakeSongs});
   });
 
+  it('creates a playlist on initialize', function(){
+    expect(app.get('playlist') instanceof Playlist).toBeTruthy();
+  });
+
   it('sets the current song when a "play" event is fired', function(){
     expect(app.get('currentSong')).toEqual(jasmine.any(Object));
     app.get('library').at(0).trigger('play', app.get('library').at(0));
     expect(app.get('currentSong')).toEqual(app.get('library').at(0));
-  });
-
-  it('creates a playlist on initialize', function(){
-    expect(app.get('playlist') instanceof Playlist).toBeTruthy();
   });
 
   it('queues the next song when an "enqueue" event is fired', function(){
