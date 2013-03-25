@@ -1,25 +1,26 @@
 var PlaylistView = Backbone.View.extend({
 
-    initialize: function() {
-      this.collection.on('change:queuedAt', this.render, this);
-      this.render();
-    },
+/* start solution */
+  tagName: "table",
+/* end solution */
 
-    render: function() {
-      if(this.queuedSongs().length){
-        this.el.innerHTML = 'Now playing a song!';
-      } else {
-        this.el.innerHTML = 'click on something';
-      }
-      return this.$el;
-    },
+  initialize: function() {
+/* start solution */
+    this.collection.on('add remove', this.render, this);
+/* end solution */
+  },
 
-    queuedSongs: function() {
-      return this.collection.chain()
-        .filter(function(val) {
-          if(val.get('queuedAt')) return val;
-        })
-        .sortBy('queuedAt')
-        .value();
-    }
+  render: function() {
+/* start solution */
+    this.$el.children().detach();
+
+    this.$el.html('<th>Playlist</th>').append(
+      this.collection.map(function(song){
+        return new PlaylistEntryView({model: song}).render();
+      })
+    );
+/* end solution */
+    return this.$el;
+  }
+
 });

@@ -2,14 +2,16 @@ var Song = Backbone.Model.extend({
 
   play: function(){
     this.trigger('play', this);
+/* start solution */
   },
 
-  ended: function(){
-    this.trigger('audioEnded', this);
+  enqueue: function(){
+    this.trigger('enqueue', this);
   },
 
-  queue: function() {
-    this.set('queuedAt', new Date());
+  dequeue: function(){
+    this.trigger('dequeue', this);
+/* end solution */
   }
 
 });

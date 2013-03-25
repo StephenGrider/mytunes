@@ -1,22 +1,19 @@
-var LibraryEntryView = Backbone.View.extend({
+var PlaylistEntryView = Backbone.View.extend({
 
+/* start solution */
   tagName: 'tr',
 
   template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
 
   events: {
     'click': function() {
-/* start prompt
-      this.model.play();
-end prompt */
-/* start solution */
-      this.model.enqueue();
-/* end solution */
+      this.model.dequeue();
     }
   },
 
   render: function(){
     return this.$el.html(this.template(this.model.attributes));
   }
+/* end solution */
 
 });
