@@ -14,7 +14,6 @@ describe('PlaylistView', function() {
         title:'test song 2'
       }
     ]);
-
   });
 
   xit('creates PlaylistEntryViews for each queued song & renders them', function(){
