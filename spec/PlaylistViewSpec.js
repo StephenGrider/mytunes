@@ -1,5 +1,5 @@
 describe('PlaylistView', function() {
-  var view, firstFakeSong, fakeSongs;
+  var view, firstFakeSong, fakeSongs, secondFakeSong;
 
   beforeEach(function() {
     fakeSongs = new Songs([
@@ -7,10 +7,16 @@ describe('PlaylistView', function() {
         artist: 'data',
         url: '/test/testsong.mp3',
         title:'test song'
+      },
+      {
+        artist: 'data',
+        url: '/test/testsong2.mp3',
+        title:'test song 2'
       }
     ]);
 
     firstFakeSong = fakeSongs.at(0);
+    secondFakeSong = fakeSongs.at(1);
 
     spyOn(PlaylistView.prototype, 'render').andCallThrough();
     view = new PlaylistView({collection: fakeSongs});
@@ -41,4 +47,13 @@ describe('PlaylistView', function() {
     });
 
   });
+
+  xit('returns the queued songs in the order they were added', function(){
+    expect(view.queuedSongs()).toEqual([]);
+    firstFakeSong.set('queuedAt', new Date());
+    expect(view.queuedSongs()).toEqual([firstFakeSong]);
+    secondFakeSong.set('queuedAt', new Date());
+    expect(view.queuedSongs()).toEqual([firstFakeSong, secondFakeSong]);
+  });
+
 });
