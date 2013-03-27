@@ -1,7 +1,9 @@
 describe('Song', function() {
+  var trigSpy, model;
+
   beforeEach(function() {
-    this.trigSpy = spyOn(Song.prototype, 'trigger').andCallThrough();
-    this.model = new Song({
+    trigSpy = spyOn(Song.prototype, 'trigger').andCallThrough();
+    model = new Song({
       artist: 'data',
       url: '/test/testsong.mp3',
       title:'test song'
@@ -10,22 +12,22 @@ describe('Song', function() {
 
   describe('play', function() {
     it('triggers a "play" event', function() {
-      this.model.play();
-      expect(this.trigSpy).toHaveBeenCalledWith('play', this.model);
+      model.play();
+      expect(trigSpy).toHaveBeenCalledWith('play', model);
     });
   });
 
   xdescribe('enqueue', function() {
     it('triggers an "enqueue" event', function() {
-      this.model.enqueue();
-      expect(this.trigSpy).toHaveBeenCalledWith('enqueue', this.model);
+      model.enqueue();
+      expect(trigSpy).toHaveBeenCalledWith('enqueue', model);
     });
   });
 
   xdescribe('dequeue', function() {
     it('triggers a "dequeue" event', function() {
-      this.model.dequeue();
-      expect(this.trigSpy).toHaveBeenCalledWith('dequeue', this.model);
+      model.dequeue();
+      expect(trigSpy).toHaveBeenCalledWith('dequeue', model);
     });
   });
 });
