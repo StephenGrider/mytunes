@@ -38,7 +38,7 @@ describe('Playlist', function() {
       var playlist = new Playlist([songData1, songData2]);
       song2 = playlist.at(1);
       expect(playlist.length).toEqual(2);
-      playlist.at(0).trigger('ended');
+      playlist.at(0).ended();
       expect(playlist.length).toEqual(1);
       expect(playlist.at(0)).toEqual(song2);
     });
@@ -46,7 +46,7 @@ describe('Playlist', function() {
     describe('if there are any songs left in the queue', function() {
       xit('plays the first song in the queue', function() {
         var playlist = new Playlist([songData1, songData2]);
-        playlist.at(0).trigger('ended');
+        playlist.at(0).ended();
         expect(playSpy).toHaveBeenCalled();
       });
     });
@@ -54,7 +54,7 @@ describe('Playlist', function() {
     describe('if there are no songs left in the queue', function() {
       xit('does nothing', function() {
         var playlist = new Playlist(songData1);
-        playlist.at(0).trigger('ended');
+        playlist.at(0).ended();
         expect(playSpy).not.toHaveBeenCalled();
       });
     });
@@ -64,7 +64,7 @@ describe('Playlist', function() {
     xit('removes the song', function() {
       removeSpy = spyOn(Playlist.prototype, 'remove').andCallThrough();
       var playlist = new Playlist(songData1);
-      playlist.at(0).trigger('dequeue');
+      playlist.at(0).dequeue();
       expect(removeSpy).toHaveBeenCalled();
     });
   });

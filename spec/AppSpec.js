@@ -23,12 +23,12 @@ describe('App', function() {
 
   it('sets the current song when a "play" event is fired', function(){
     expect(app.get('currentSong')).toEqual(jasmine.any(Object));
-    app.get('library').at(0).trigger('play', app.get('library').at(0));
+    app.get('library').at(0).play();
     expect(app.get('currentSong')).toEqual(app.get('library').at(0));
   });
 
   xit('queues the next song when an "enqueue" event is fired', function(){
-    app.get('library').at(1).trigger('enqueue', app.get('library').at(1));
+    app.get('library').at(1).enqueue();
     expect(app.get('playlist').at(0)).toEqual(app.get('library').at(1));
   });
 
