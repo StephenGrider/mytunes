@@ -1,4 +1,4 @@
-var PlaylistView = Backbone.View.extend({
+var SongQueueView = Backbone.View.extend({
 
   initialize: function() {
   },

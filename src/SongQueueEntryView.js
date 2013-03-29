@@ -1,3 +1,3 @@
-var PlaylistEntryView = Backbone.View.extend({
+var SongQueueEntryView = Backbone.View.extend({
 
 });

@@ -1,4 +1,4 @@
-var Playlist = Songs.extend({
+var SongQueue = Songs.extend({
 
   initialize: function(){
   }
