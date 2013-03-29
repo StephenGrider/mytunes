@@ -1,8 +1,8 @@
-describe('PlaylistView', function() {
+describe('SongQueueView', function() {
   var view, fakeSongs;
 
   beforeEach(function() {
-    fakeSongs = new Playlist([
+    fakeSongs = new SongQueue([
       {
         artist: 'data',
         url: '/test/testsong.mp3',
@@ -16,16 +16,16 @@ describe('PlaylistView', function() {
     ]);
   });
 
-  xit('creates PlaylistEntryViews for each queued song & renders them', function(){
-    spyOn(PlaylistEntryView.prototype, 'render').andCallThrough();
-    view = new PlaylistView({collection: fakeSongs});
+  xit('creates SongQueueEntryViews for each queued song & renders them', function(){
+    spyOn(SongQueueEntryView.prototype, 'render').andCallThrough();
+    view = new SongQueueView({collection: fakeSongs});
     view.render();
-    expect(PlaylistEntryView.prototype.render).toHaveBeenCalled();
+    expect(SongQueueEntryView.prototype.render).toHaveBeenCalled();
   });
 
-  xit('renders when add or remove event fires from the playlist collection', function(){
-    spyOn(PlaylistView.prototype, 'render').andCallThrough();
-    view = new PlaylistView({collection: fakeSongs});
+  xit('renders when add or remove event fires from the song queue collection', function(){
+    spyOn(SongQueueView.prototype, 'render').andCallThrough();
+    view = new SongQueueView({collection: fakeSongs});
     view.collection.add({
       artist: 'data',
       url: '/test/testsong3.mp3',

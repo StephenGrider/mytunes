@@ -17,8 +17,8 @@ describe('App', function() {
     app = new App({library: fakeSongs});
   });
 
-  it('creates a playlist on initialize', function(){
-    expect(app.get('playlist') instanceof Playlist).toBeTruthy();
+  it('creates a song queue on initialize', function(){
+    expect(app.get('songQueue') instanceof SongQueue).toBeTruthy();
   });
 
   it('sets the current song when a "play" event is fired', function(){
@@ -29,7 +29,7 @@ describe('App', function() {
 
   xit('queues the next song when an "enqueue" event is fired', function(){
     app.get('library').at(1).trigger('enqueue', app.get('library').at(1));
-    expect(app.get('playlist').at(0)).toEqual(app.get('library').at(1));
+    expect(app.get('songQueue').at(0)).toEqual(app.get('library').at(1));
   });
 
 
