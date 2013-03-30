@@ -15,6 +15,10 @@ describe('Playlist', function() {
     };
   });
 
+  afterEach(function() {
+    playSpy.reset();
+  });
+
   describe('when a song is added', function() {
     describe('when it is the only song in the playlist', function() {
       xit('plays it', function() {
