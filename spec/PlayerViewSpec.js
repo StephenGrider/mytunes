@@ -31,7 +31,7 @@ describe('PlayerView', function() {
     xit('dequeues a song when finished playing & plays the next song', function(){
       library.at(0).play();
       var originalSong = appView.playerView.model;
-      appView.model.get('playlist').add(library.at(1));
+      appView.model.get('songQueue').add(library.at(1));
       // Simulate a song end event being triggered
       $(appView.playerView.el).trigger('ended');
       expect(appView.playerView.model).not.toEqual(originalSong);
