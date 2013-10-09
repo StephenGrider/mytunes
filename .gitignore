@@ -41,6 +41,8 @@ node_modules
 # SublimeText project files
 *.sublime-workspace
 
+# bower
+client/bower_components
 
 # audio
 *.aif
