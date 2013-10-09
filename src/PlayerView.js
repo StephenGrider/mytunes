@@ -1,3 +1,4 @@
+// PlayerView.js - Defines a backbone view class for the music player.
 var PlayerView = Backbone.View.extend({
 
   el: '<audio controls autoplay />',
