@@ -9,7 +9,12 @@ var SongQueue = Songs.extend({
       if(this.length ===1){
         this.playFirst(song);
       }
-
+    })
+    this.on('songended',function(){
+      console.log('its nothing',this.models[0])
+      this.remove(this.models[0]);
+      this.trigger('remove')
+      console.log('songqueue remove listener');
     })
   },
 
