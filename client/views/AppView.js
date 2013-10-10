@@ -9,10 +9,10 @@ var AppView = Backbone.View.extend({
       this.playerView.setSong(model.get('currentSong'));
     }, this);
 
-    this.playerView.on('ended',function(){
-      // console.log('over');
-      this.model.trigger('songended');
-    })
+    // this.playerView.on('ended',function(){
+    //   // console.log('over');
+    //   this.model.trigger('songended');
+    // })
   },
   render: function(){
     return this.$el.html([

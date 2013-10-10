@@ -2,24 +2,39 @@
 var SongQueue = Songs.extend({
 
   initialize: function(){
-    // this.model.on('play', function(song){
-    //   this.set('currentSong', song);
-    // }, this);
+
+    var self = this;
+
     this.on('add',function(song){
       if(this.length ===1){
         this.playFirst(song);
       }
-    })
-    this.on('songended',function(){
-      console.log('its nothing',this.models[0])
-      this.remove(this.models[0]);
-      this.trigger('remove')
-      console.log('songqueue remove listener');
-    })
+      song.on('ended',function(){
+        this.remove(this.models[0]);
+        if(this.models[0]){
+          this.playFirst(this.models[0]);
+        }
+      }.bind(this));
+
+      song.on('clickremove',function(){
+        self.remove(this);
+        // if (self.models.length) {
+        //   self.models[0].play();
+        // }
+        if(self.models[0]){
+          self.playFirst(self.models[0]);
+        }
+      })
+    }.bind(this));
+
+
+
   },
 
   playFirst: function(song){
-    song.play();
+    //if(song === undefined){
+      song.play();
+    // }
   }
 
 

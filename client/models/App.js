@@ -17,9 +17,9 @@ var App = Backbone.Model.extend({
       this.get('songQueue').add(song);
     }, this);
 
-    this.on('songended',function(){
-      this.get('songQueue').trigger('end');
-    },this);
+    // this.on('songended',function(){
+    //   this.get('songQueue').trigger('end');
+    // },this);
 
   },
 

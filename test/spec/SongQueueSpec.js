@@ -29,7 +29,7 @@ describe('SongQueue', function() {
     });
 
     describe('when it is not the only song in the song queue', function() {
-      it('does nothing', function() {
+    it('does nothing', function() {
         var songQueue = new SongQueue(songData1);
         songQueue.add(songData2);
         expect(playSpy).not.toHaveBeenCalled();
@@ -38,11 +38,13 @@ describe('SongQueue', function() {
   });
 
   describe('when a song ends', function() {
-    xit('removes the song from the queue', function() {
+    it('removes the song from the queue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
       song2 = songQueue.at(1);
       expect(songQueue.length).toEqual(2);
+      console.log(songQueue.at(0));
       songQueue.at(0).trigger('ended');
+      console.log(songQueue.at(1));
       expect(songQueue.length).toEqual(1);
       expect(songQueue.at(0)).toEqual(song2);
     });

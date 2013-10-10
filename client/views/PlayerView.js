@@ -7,7 +7,8 @@ var PlayerView = Backbone.View.extend({
 
   initialize: function() {
     this.$el.on('ended',function(){
-      this.trigger('ended');
+      // this.trigger('ended');
+      this.model.trigger('ended');
     }.bind(this));
   },
 
