@@ -14,9 +14,21 @@ var App = Backbone.Model.extend({
     var self = this;
 
     params.library.on('enqueue', function(song) {
+
+
+
       // songQueue is set to a new queue.
-      self.get('songQueue').add(song);
-    });
+      this.get('songQueue').add(song);
+
+      // console.log(self.get('songQueue').length);
+
+      // if (this.get('songQueue').length === 1) {
+      //   this.set('currentSong', song);
+      //   // this.get('songQueue').playFirst();
+      // }
+
+
+    }, this);
 
     // Set up song queue?
     // params.library.on('queue')
