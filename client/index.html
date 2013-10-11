@@ -3,6 +3,8 @@
   <head>
   </head>
   <body>
+    <link rel="stylesheet" type="text/css" href="src/style.css" />
+
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
@@ -13,7 +15,7 @@
     <script src="collections/Songs.js"></script>
     <script src="collections/SongQueue.js"></script>
     <script src="models/App.js"></script>
-
+    
     <script src="dancer.js"></script>
     <script src="views/PlayerView.js"></script>
     <script src="views/LibraryView.js"></script>
@@ -21,10 +23,13 @@
     <script src="views/AppView.js"></script>
     <script src="views/SongQueueView.js"></script>
     <script src="views/SongQueueEntryView.js"></script>
+    <div id="container"></div>
+    <canvas id="barchart"></canvas>
 
-
+    
   </body>
     <script>
+
       $(function(){
         // set up model objects
         var library = new Songs(songData);
@@ -34,13 +39,19 @@
         var appView = new AppView({model: app});
 
         // put the view onto the screen
-        $('body').append(appView.render());
+        $('#container').append(appView.render());
 
         var audio  = document.getElementsByTagName('audio')[0],
         dancer = new Dancer(),
         kick = dancer.createKick({
+          threshold: .2,
+
           onKick: function ( mag ) {
-            console.log('Kick!');
+            console.log('Kick! ',mag);
+            //do graphics update here.
+
+
+
           },
           offKick: function ( mag ) {
             console.log('no kick :(');
@@ -72,8 +83,9 @@
         dancer.play();
       });
 
-
+      
 
 
     </script>
+    <script src="src/bars.js"></script>
 </html>

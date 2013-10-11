@@ -14,7 +14,7 @@ var SongQueueView = Backbone.View.extend({
 
   render: function() {
     this.$el.children().detach();
-    return this.$el.html('<th>Queue</th>').append(
+    return this.$el.html('<th><h2>Queue</h2></th>').append(
       this.collection.map(function(song) {
         return new SongQueueEntryView({model:song}).render();
       }));
