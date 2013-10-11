@@ -25,9 +25,18 @@ var init = function(){
       rx: 7,
       ry: 7
     });
-
   }
 
+//Transition handler for mouseover
+d3.selectAll('rect').on('mouseover',function(){
+  // var xPos = d3.select(this).attr('x');
+  // xPos = (parseFloat(xPos)+2.5)+'%';
+  // d3.select(this).transition().duration(10).attr({width: '5%', x:xPos})
+}).on('mouseout',function(){
+  // var xPos = d3.select(this).attr('x');
+  // xPos = (parseFloat(xPos)-2.5)+'%';
+  // d3.select(this).transition().duration(10).attr({width: '10%', x:xPos});
+})
 
 }
 init();
@@ -52,7 +61,5 @@ var kickHandler = function(mag, spectrum){
 
   d3.selectAll('rect').data(arr).transition().duration(200).attr('y',function(d){return y(d) + "%"})
               .transition().duration(400).attr('y','90%');
-
-
 
 };
