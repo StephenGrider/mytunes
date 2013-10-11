@@ -25,12 +25,7 @@
     <script src="views/SongQueueEntryView.js"></script>
     <h1> GreyPlayer </h1>
     <div id="container"></div>
-    <svg>
-
-      <!-- <rect height:"100%" width="100%" stroke="black" stroke-width="1">
-      </rect> -->3
-
-    </svg>
+    <svg></svg>
 
 
   </body>
@@ -53,7 +48,12 @@
           threshold: .2,
 
           onKick: function ( mag ) {
-            kickHandler(mag);
+
+            kickHandler(mag, dancer.getSpectrum());
+
+
+
+
           },
           offKick: function ( mag ) {
           }

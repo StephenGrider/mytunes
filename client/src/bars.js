@@ -32,21 +32,25 @@ var init = function(){
 }
 init();
 
-var kickHandler = function(mag){
+var kickHandler = function(mag, spectrum){
 
-  var heightArr = [(15+Math.random()*20-10)+'%',
-                    (25+Math.random()*20-10)+'%',
-                    (35+Math.random()*20-10)+'%',
-                    (45+Math.random()*20-10)+'%',
-                    (55+Math.random()*20-10)+'%',
-                    (65+Math.random()*20-10)+'%',
-                    (75+Math.random()*20-10)+'%',
-                    (65+Math.random()*20-10)+'%',
-                    (55+Math.random()*20-10)+'%',
-                    (45+Math.random()*20-10)+'%',];
+  var arr = [];
+  
+  for(var i = 1; i <= 10 ; i++){
+    var average = 0;
+    for(var j = i*40 - 40 ; j < i*40; j++){
+      average += spectrum[j];
+    }
+    if(i===1){
+      arr.push(average/100);
+    }else{
+      arr.push(average/40);
+    }
+  };
 
+  var y = d3.scale.linear().domain([0,d3.max(arr)]).range([100,0]);
 
-  d3.selectAll('rect').data(heightArr).transition().duration(200).attr('y',function(d){return d})
+  d3.selectAll('rect').data(arr).transition().duration(200).attr('y',function(d){return y(d) + "%"})
               .transition().duration(400).attr('y','90%');
 
 
