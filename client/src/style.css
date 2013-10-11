@@ -2,14 +2,34 @@
   margin:0;
   padding:0;
   border:0;
+  color: #333;
+  font-family:sans-serif;
 }
 
 body{
-  background-color: ;
+  background-color: #333;
 }
 
-th{
- 
+h1 {
+  margin: 200px auto 20px;
+  text-align:center;
+  font-family: 'HelveticaNeue-Light', Arial, sans-serif;
+  font-weight:100;
+  font-size:3.0em;
+  color:rgba(170,171,188, 0.8);
+  text-shadow: 1px 4px 6px rgba(51,68,85, 0.8);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+h2 {
+  color:black;
+}
+
+tr, td{
+  font-family:'HelveticaNeue-Light';
+  font-size:.95em;
 }
 
 audio {
@@ -19,11 +39,12 @@ audio {
 
 #container {
   width: 630px;
-  margin: 200px auto 0;
-  border:2px dashed black;
+  margin: 0 auto;
+  border:2px dashed #333;
   padding:20px 0 0 5px;
   border-radius:10px;
-
+  opacity:0.8;
+  background-color:#ccc;
 }
 
 table {
@@ -31,4 +52,14 @@ table {
   width:309px;
   height:164px;
   margin:3px;
+}
+
+svg {
+  border:3px solid black;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  z-index: -1;
 }

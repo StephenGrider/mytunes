@@ -15,7 +15,7 @@
     <script src="collections/Songs.js"></script>
     <script src="collections/SongQueue.js"></script>
     <script src="models/App.js"></script>
-    
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="dancer.js"></script>
     <script src="views/PlayerView.js"></script>
     <script src="views/LibraryView.js"></script>
@@ -23,10 +23,16 @@
     <script src="views/AppView.js"></script>
     <script src="views/SongQueueView.js"></script>
     <script src="views/SongQueueEntryView.js"></script>
+    <h1> GreyPlayer </h1>
     <div id="container"></div>
-    <canvas id="barchart"></canvas>
+    <svg>
 
-    
+      <!-- <rect height:"100%" width="100%" stroke="black" stroke-width="1">
+      </rect> -->3
+
+    </svg>
+
+
   </body>
     <script>
 
@@ -47,20 +53,11 @@
           threshold: .2,
 
           onKick: function ( mag ) {
-            console.log('Kick! ',mag);
-            //do graphics update here.
-
-
-
+            kickHandler(mag);
           },
           offKick: function ( mag ) {
-            console.log('no kick :(');
           }
         });
-
-        
-        
-
 
         dancer.load({ src: songData[0].url });
 
@@ -74,8 +71,8 @@
         }).after( 60, function() {
           // After 60s, let's get this real and map a frequency to an object's y position
           // Note that the instance of dancer is bound to "this"
-          object.y = this.getFrequency( 400 );
-        }).onceAt( 120, function() {
+          // object.y = this.getFrequency( 400 );
+        }).onceAt( 12000, function() {
           // After 120s, we'll turn the kick off as another object's y position is still being mapped from the previous "after" method
           kick.off();
         }).load( audio ); // And finally, lets pass in our Audio element to load
